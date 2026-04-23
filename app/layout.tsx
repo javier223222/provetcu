@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Montserrat,Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 
-const montserrat = Montserrat({
+
+
+const inter = Inter({
   subsets: ["latin"],
-  
+  variable: "--font-inter",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -20,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="h-full antialiased">
-      <body className={`${montserrat.className} min-h-full flex flex-col`}>
+      <body className={`${inter.className} min-h-full flex flex-col`}>
         <Navbar />
         <main className="flex-1">{children}</main>
       </body>

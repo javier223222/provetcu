@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 import { NAV_ITEMS } from '@/lib/constants';
-
+import NavItems from '../ui/NavItems';
 
 export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -16,11 +16,11 @@ export default function Navbar() {
         <header className="sticky top-0 z-50 w-full border-b border-gray-100 bg-white shadow-sm transition-all">
             <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
 
-                
+
                 <div className="flex items-center">
                     <Link href="/" className="flex items-center gap-2 transition-opacity hover:opacity-90">
 
-                        <div className="relative h-16 w-48 shrink-0">
+                        <div className="relative h-12 w-36 md:h-16 md:w-48 shrink-0">
                             <Image
                                 src="/logo.png"
                                 alt="Provetcu Salud Animal Logo"
@@ -33,21 +33,10 @@ export default function Navbar() {
                     </Link>
                 </div>
 
-                
+
                 <nav className="hidden md:flex items-center gap-8">
-                    {NAV_ITEMS.map((item) => {
-                        const isActive = pathname === item.href;
-                        return (
-                            <Link
-                                key={item.name}
-                                href={item.href}
-                                className={`text-[15px] font-semibold transition-colors hover:text-red-800 ${isActive ? 'text-red-800' : 'text-slate-900'
-                                    }`}
-                            >
-                                {item.name}
-                            </Link>
-                        );
-                    })}
+                    
+                    <NavItems navItems={NAV_ITEMS} pathName={pathname} />
                     <Link
                         href="/catalogo"
                         className="rounded-full bg-red-800 px-6 py-2.5 text-[15px] font-semibold text-white transition-all hover:bg-red-900 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-red-800 focus:ring-offset-2"
@@ -76,7 +65,7 @@ export default function Navbar() {
                     }`}
             >
                 <div className="space-y-1 px-4 pb-4 pt-2">
-                    {NAV_ITEMS.map((item) => {
+                    {NAV_ITEMS.map((item: { name: string; href: string; }) => {
                         const isActive = pathname === item.href;
                         return (
                             <Link

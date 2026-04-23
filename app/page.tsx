@@ -1,5 +1,7 @@
+import About from "@/components/layout/About";
 import Hero from "@/components/layout/Hero";
-import Brands from "@/components/ui/Brands";
+import Laboratories from "@/components/ui/Laboratories";
+import Brands from "@/components/ui/Laboratories";
 
 
 
@@ -7,9 +9,8 @@ export default function Home() {
   return (
     <div >
      <Hero />
-     <Brands />
-
-    
+     <About />
+     <Laboratories />
     </div>
   );
 }
