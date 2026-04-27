@@ -1,30 +1,11 @@
 @import "tailwindcss";
-
+@config "../tailwind.config.ts";
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  
-  /* Paleta base de PROVETCU generada a partir del rojo #BD2E2C */
-  --color-red-50: #fdf4f4;
-  --color-red-100: #fae6e5;
-  --color-red-200: #f5c7c6;
-  --color-red-300: #eba09e;
-  --color-red-400: #df6f6c;
-  --color-red-500: #d1413f;
-  --color-red-600: #BD2E2C; /* El color exacto solicitado */
-  --color-red-700: #a42121;
-  --color-red-800: #881e1e; /* El que usamos para botones y hover Navbar */
-  --color-red-900: #711f1f;
-  --color-red-950: #420d0d;
 
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -36,5 +17,69 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+@layer base {
+  /* Asignación global de Bricolage a encabezados mayores */
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em; /* Bricolage luce más premium un poco junta */
+  }
+
+  /* Display / Hero: 64–72px, Black / 900 */
+  .text-hero {
+    font-family: var(--font-display);
+    font-size: clamp(64px, 5vw, 72px);
+    font-weight: 900;
+    line-height: 1.1;
+  }
+
+  /* H1 / Title: 48px, Bold / 700 */
+  h1 {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  /* H2 / Subtitle 1: 32–36px, SemiBold / 600 */
+  h2 {
+    font-size: clamp(32px, 3vw, 36px);
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  /* H3 / Subtitle 2: 24px, SemiBold / 600 */
+  h3 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  /* H4: 20px, Medium / 500, Montserrat */
+  h4 {
+    font-family: var(--font-sans);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  /* Body: 16px, Regular / 400 */
+  p, span {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+
+  /* Small / Caption: 14px, Regular / 400 */
+  small, .text-small {
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  /* Micro: 12px, Medium / 500 */
+  .text-micro {
+    font-size: 12px;
+    font-weight: 500;
+  }
 }

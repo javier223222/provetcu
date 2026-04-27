@@ -12,10 +12,10 @@ export default function About() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center"
         >
-                <h2 className="text-[32px] font-bold tracking-tight text-slate-700 sm:text-[42px] leading-tight mb-6 max-w-6xl mx-auto">
+                <h2 className="font-display text-h2 text-gray-900 mb-6 max-w-6xl mx-auto">
                     Sobre Nosotros
                 </h2>
-                <p className="mx-auto max-w-6xl text-[19px] leading-relaxed text-slate-600 mb-16">
+                <p className="mx-auto max-w-6xl font-body text-h4 text-gray-700 mb-16">
                    Somos una empresa chiapaneca con más de 25 años de experiencia en soluciones veterinarias, productos para animales de producción y compañía, y alimentos premium para mascotas.
                 </p>
         </motion.div>

@@ -17,10 +17,10 @@ export default function Laboratories() {
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.6 }}
                 >
-                    <h2 className="text-[32px] font-bold tracking-tight text-slate-700 sm:text-[42px] leading-tight mb-6 max-w-6xl mx-auto">
+                    <h2 className="font-display text-h2 text-gray-900 mb-6 max-w-6xl mx-auto">
                         Consigue medicamentos de los mejores laboratorios veterinarios
                     </h2>
-                    <p className="mx-auto max-w-6xl text-[19px] leading-relaxed text-slate-600 mb-16">
+                    <p className="mx-auto max-w-6xl font-body text-h4 text-gray-700 mb-16">
                         Contamos con uno de los portafolios más completos del mercado en Chiapas, representando a  laboratorios
                         farmacéuticos líderes en salud animal, lo que nos permite ofrecer soluciones terapéuticas de máxima
                         calidad para mascotas y animales de producción.

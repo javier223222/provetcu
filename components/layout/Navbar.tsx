@@ -1,5 +1,4 @@
 'use client';
-
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -39,7 +38,7 @@ export default function Navbar() {
                     <NavItems navItems={NAV_ITEMS} pathName={pathname} />
                     <Link
                         href="/catalogo"
-                        className="rounded-full bg-red-800 px-6 py-2.5 text-[15px] font-semibold text-white transition-all hover:bg-red-900 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-red-800 focus:ring-offset-2"
+                        className="rounded-full bg-primary px-6 py-2.5 text-[15px] font-semibold text-white transition-all hover:bg-primary-dark hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                     >
                         Ver Productos
                     </Link>
@@ -84,7 +83,7 @@ export default function Navbar() {
                     <div className="mt-4 px-3">
                         <Link
                             href="/catalogo"
-                            className="flex w-full items-center justify-center rounded-md bg-red-800 px-4 py-2.5 text-[15px] font-semibold text-white hover:bg-red-900 transition-colors"
+                            className="flex w-full items-center justify-center rounded-md bg-primary px-4 py-2.5 text-[15px] font-semibold text-white hover:bg-primary-dark transition-colors"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
                             Ver Productos

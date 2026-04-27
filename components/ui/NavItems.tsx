@@ -9,7 +9,7 @@ export default function NavItems(props:{navItems: {name: string; href: string}[]
             <Link
                 key={item.name}
                 href={item.href}
-                className={`text-[15px] font-semibold transition-colors hover:text-red-800 ${isActive ? 'text-red-800' : 'text-slate-900'
+                className={`text-[15px] font-semibold transition-colors hover:text-primary-dark ${isActive ? 'text-primary-dark' : 'text-gray-900'
                     }`}
             >
                 {item.name}
