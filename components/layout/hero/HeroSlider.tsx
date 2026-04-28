@@ -26,9 +26,21 @@ export default function HeroSlider() {
     return () => window.removeEventListener('keydown', handleKey);
   }, [next, prev]);
 
+  // Precarga del resto de fondos del hero. La primera imagen ya entra con
+  // priority via SlideBackground; las demás cargan al cambiar de slide y eso
+  // produce un "tirón" perceptible la primera vez que aparece cada una.
+  // Decoding async asegura que no bloqueen el hilo principal.
+  useEffect(() => {
+    HERO_SLIDES.slice(1).forEach((s) => {
+      const img = new window.Image();
+      img.decoding = 'async';
+      img.src = s.bgImage;
+    });
+  }, []);
+
   return (
     <div
-      className="group relative w-full h-[100svh] md:h-[85vh] min-h-[600px] overflow-hidden flex flex-col justify-center bg-ink"
+      className="group relative w-full h-[calc(100svh-5rem)] min-h-[600px] overflow-hidden flex flex-col justify-center bg-ink touch-pan-y"
       onMouseEnter={pause}
       onMouseLeave={resume}
       onFocus={pause}
@@ -41,7 +53,7 @@ export default function HeroSlider() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.85, ease: 'easeOut' }}
           className="absolute inset-0 w-full h-full"
         >
           <SlideBackground
@@ -58,10 +70,9 @@ export default function HeroSlider() {
           <AnimatePresence mode="wait">
             <motion.div
               key={currentIndex}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.5, ease: 'easeOut' }}
+              initial={false}
+              exit={{ opacity: 0, y: -18 }}
+              transition={{ duration: 0.32, ease: [0.4, 0, 0.2, 1] }}
             >
               <HeroSlide slide={slide} />
             </motion.div>

@@ -46,7 +46,7 @@ export default function Navbar() {
                 <div className="flex items-center md:hidden">
                     <button
                         type="button"
-                        className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-red-600"
+                        className="inline-flex items-center justify-center rounded-md p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
                         aria-expanded={isMobileMenuOpen}
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     >
@@ -60,7 +60,7 @@ export default function Navbar() {
                 </div>
             </div>
             <div
-                className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-96 border-b border-gray-100 bg-gray-50 opacity-100' : 'max-h-0 opacity-0'
+                className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'max-h-96 border-b border-gray-100 bg-gray-100 opacity-100' : 'max-h-0 opacity-0'
                     }`}
             >
                 <div className="space-y-1 px-4 pb-4 pt-2">
@@ -71,8 +71,8 @@ export default function Navbar() {
                                 key={item.name}
                                 href={item.href}
                                 className={`block rounded-md px-3 py-2.5 text-[15px] font-semibold transition-colors ${isActive
-                                    ? 'bg-red-50 text-red-800'
-                                    : 'text-slate-900 hover:bg-gray-100 hover:text-red-800'
+                                    ? 'bg-primary/10 text-primary-dark'
+                                    : 'text-gray-900 hover:bg-gray-100 hover:text-primary-dark'
                                     }`}
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >

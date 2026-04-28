@@ -83,3 +83,64 @@ body {
     font-weight: 500;
   }
 }
+
+@layer utilities {
+  /* Spacing canónico de sección: usar en el <section> raíz. */
+  .section-y {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  .section-y-sm {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  .section-y-lg {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+  /* Container canónico: ancho max + gutters responsivos. */
+  .section-x {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .section-x { padding-left: 1.5rem; padding-right: 1.5rem; }
+  }
+  @media (min-width: 1024px) {
+    .section-y    { padding-top: 7rem; padding-bottom: 7rem; }
+    .section-y-sm { padding-top: 4rem; padding-bottom: 4rem; }
+    .section-y-lg { padding-top: 8rem; padding-bottom: 8rem; }
+    .section-x    { padding-left: 2rem; padding-right: 2rem; }
+  }
+}
+
+@keyframes marquee {
+  0%   { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+.animate-marquee {
+  animation: marquee 75s linear infinite;
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  /* Forzar capa GPU permanente: translate3d en el keyframe ya promueve, pero
+     translateZ(0) y backface-visibility:hidden estabilizan la promoción y evitan
+     que el compositor desmonte la capa entre frames. */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  /* Aislar pintura: el browser garantiza que nada fuera del track requiere
+     repintarse cuando el track se mueve. */
+  contain: layout paint;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}

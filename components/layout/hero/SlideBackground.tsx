@@ -14,10 +14,12 @@ export default function SlideBackground({ src, alt, priority = false }: Readonly
         alt={alt}
         fill
         priority={priority}
+        quality={90}
         sizes="100vw"
-        className="object-cover object-center"
+        draggable={false}
+        className="object-cover object-center select-none pointer-events-none [-webkit-touch-callout:none]"
       />
-      <div className="absolute inset-0 bg-ink/30" />
+      <div className="absolute inset-0 bg-ink/50" />
     </>
   );
 }

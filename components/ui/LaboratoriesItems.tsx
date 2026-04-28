@@ -1,26 +1,42 @@
-import { ITEM_VARIANTS, LABORATORIES,CONTAINER_VARIANTS } from '@/lib/constants';
+import { LABORATORIES } from '@/lib/constants';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-
 export default function LaboratoriesItems() {
-    return (
-        <motion.div 
-                            variants={CONTAINER_VARIANTS}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, margin: "-50px" }}
-                            className="mx-auto grid max-w-lg grid-cols-2 items-center gap-x-8 gap-y-12 sm:max-w-xl sm:grid-cols-3 sm:gap-x-10 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:grid-cols-6"
-                        >
-        {LABORATORIES.map((lab: { name: string; logo: string; }, index: number) => (
-                        <motion.div 
-                            variants={ITEM_VARIANTS}
-                            key={index} 
-                            className="flex justify-center items-center h-20 transition-transform duration-300 hover:scale-110"
-                        >
-                            <Image src={lab.logo} alt={lab.name} width={120} height={80} className="object-contain" />
-                        </motion.div>
-                    ))}
-        </motion.div>
-    );
+  // Cuadruplicamos la lista para crear la ilusión de scroll infinito sin cortes incluso en pantallas 4K
+  const duplicatedLaboratories = [...LABORATORIES, ...LABORATORIES, ...LABORATORIES, ...LABORATORIES];
+
+  return (
+    <div
+      className="relative flex overflow-hidden w-full group pause-marquee mt-10 py-8"
+      style={{
+        maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
+        WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
+      }}
+    >
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 1 }}
+        className="animate-marquee flex items-center"
+      >
+        {duplicatedLaboratories.map((lab, index) => (
+          <div
+            key={index}
+            className="flex-shrink-0 flex justify-center items-center w-36 sm:w-48 md:w-56 h-24 mx-4 sm:mx-8 select-none"
+          >
+            <Image
+              src={lab.logo}
+              alt={lab.name}
+              width={160}
+              height={80}
+              draggable={false}
+              className="object-contain max-h-[60px] md:max-h-[80px] w-auto drop-shadow-sm pointer-events-none"
+            />
+          </div>
+        ))}
+      </motion.div>
+    </div>
+  );
 }

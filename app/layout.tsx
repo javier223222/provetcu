@@ -6,7 +6,7 @@ import { Analytics } from '@vercel/analytics/next';
 
 const bricolage_grotesque = Bricolage_Grotesque({
   subsets: ["latin"],
-  variable: "--font-bricolage",
+  variable: "--font-bricolage_grotesque",
   display: "swap",
 });
 

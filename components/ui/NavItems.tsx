@@ -4,7 +4,7 @@ export default function NavItems(props:{navItems: {name: string; href: string}[]
     
      return(   <>
         {props.navItems.map((item:{name:string,href:string})=>{
-        const isActive=props.pathName==item.href;
+        const isActive=props.pathName===item.href;
         return(
             <Link
                 key={item.name}
