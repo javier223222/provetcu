@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import ChatBox from '../../common/ChatBox';
 
 export default function About() {
     return (
@@ -18,6 +19,11 @@ export default function About() {
                 <p className="mx-auto max-w-6xl font-body text-h4 text-gray-700 mb-16">
                    Somos una empresa chiapaneca con más de 25 años de experiencia en soluciones veterinarias, productos para animales de producción y compañía, y alimentos premium para mascotas.
                 </p>
+
+                <ChatBox 
+                    title="Asistente Provetcu" 
+                    placeholder="Haznos una consulta sobre nuestros servicios..." 
+                />
         </motion.div>
        </section>
     );
