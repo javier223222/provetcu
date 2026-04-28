@@ -40,7 +40,7 @@ export default function HeroSlider() {
 
   return (
     <div
-      className="group relative w-full h-[calc(100svh-5rem)] min-h-[600px] overflow-hidden flex flex-col justify-center bg-ink touch-pan-y"
+      className="group relative w-full h-[calc(100svh-5rem)] md:min-h-[600px] overflow-hidden flex flex-col justify-center bg-ink touch-pan-y"
       onMouseEnter={pause}
       onMouseLeave={resume}
       onFocus={pause}
@@ -65,7 +65,7 @@ export default function HeroSlider() {
       </AnimatePresence>
 
       {/* Contenido del slide */}
-      <div className="relative z-10 w-full pt-10 pb-28 md:py-16">
+      <div className="relative z-10 w-full pt-6 pb-24 sm:pt-10 sm:pb-28 md:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <AnimatePresence mode="wait">
             <motion.div

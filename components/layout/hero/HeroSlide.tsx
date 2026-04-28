@@ -48,7 +48,7 @@ export default function HeroSlide({ slide }: HeroSlideProps) {
       <div className="w-full flex flex-col items-center">
 
         {slide.badgeText && (
-          <motion.div {...itemSolid(0.04)} className="mb-6 flex items-center justify-center">
+          <motion.div {...itemSolid(0.04)} className="mb-4 sm:mb-6 flex items-center justify-center">
             <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-semibold uppercase tracking-[0.15em] shadow-xl isolate [transform:translateZ(0)] [backface-visibility:hidden]">
               {slide.sectorIcon && <Icon icon={slide.sectorIcon} className="w-4 h-4 text-white" />}
               {slide.badgeText}
@@ -58,15 +58,15 @@ export default function HeroSlide({ slide }: HeroSlideProps) {
 
         {/* Título */}
         <motion.h1 {...item(0.10)}
-          className="font-display text-[2.5rem] leading-[1.1] sm:text-5xl md:text-[4.5rem] lg:text-[5.5rem] md:leading-[1.05] text-white/70 font-medium mb-6 md:mb-8 text-shadow-xl tracking-tight"
+          className="font-display text-[2.25rem] leading-[1.1] sm:text-5xl md:text-[4.5rem] lg:text-[5.5rem] md:leading-[1.05] text-white/70 font-medium mb-5 sm:mb-6 md:mb-8 text-shadow-xl tracking-tight"
         >
           {slide.title}
-          <strong className="text-white font-extrabold block sm:inline mt-2 sm:mt-0 text-shadow-2xl">{slide.highlightText}</strong>
+          <strong className="text-white font-extrabold block sm:inline mt-1.5 sm:mt-0 text-shadow-2xl">{slide.highlightText}</strong>
         </motion.h1>
 
         {/* Descripción */}
         <motion.p {...item(0.18)}
-          className="font-body text-base sm:text-lg md:text-xl text-white/90 font-normal mb-8 md:mb-12 max-w-3xl text-shadow-lg leading-relaxed antialiased [backface-visibility:hidden]"
+          className="font-body text-base sm:text-lg md:text-xl text-white/90 font-normal mb-6 sm:mb-8 md:mb-12 max-w-3xl text-shadow-lg leading-relaxed antialiased [backface-visibility:hidden]"
         >
           {slide.description}
         </motion.p>
@@ -74,7 +74,7 @@ export default function HeroSlide({ slide }: HeroSlideProps) {
         {/* Stats de confianza (solo slide general) */}
         {slide.stats && (
           <motion.div {...item(0.26)}
-            className="flex flex-col sm:flex-row items-center sm:divide-x sm:divide-white/20 gap-4 sm:gap-0 mb-10"
+            className="flex flex-col sm:flex-row items-center sm:divide-x sm:divide-white/20 gap-3 sm:gap-0 mb-6 sm:mb-10"
           >
             {slide.stats.map((stat) => (
               <div key={stat.label} className="sm:px-6 first:sm:pl-0 last:sm:pr-0 text-center">
