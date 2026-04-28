@@ -1,13 +1,13 @@
 'use client';
 
-import { useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { HERO_SLIDES } from '@/lib/constants';
 import { useCarousel } from '@/hooks/useCarousel';
-import SlideBackground from './SlideBackground';
-import HeroSlide from './HeroSlide';
-import SlideNavigation from './SlideNavigation';
+import { useArrowKeyNavigation } from './hook/useArrowKeyNavigation';
+import SlideBackground from '../SlideBackground';
+import HeroSlide from '../HeroSlide';
+import SlideNavigation from '../SlideNavigation';
 
 export default function HeroSlider() {
   const { currentIndex, next, prev, goTo, pause, resume } = useCarousel({
@@ -17,14 +17,7 @@ export default function HeroSlider() {
 
   const slide = HERO_SLIDES[currentIndex];
 
-  useEffect(() => {
-    const handleKey = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowLeft') prev();
-      if (e.key === 'ArrowRight') next();
-    };
-    window.addEventListener('keydown', handleKey);
-    return () => window.removeEventListener('keydown', handleKey);
-  }, [next, prev]);
+  useArrowKeyNavigation({ onLeftArrow: prev, onRightArrow: next });
 
   return (
     <div
